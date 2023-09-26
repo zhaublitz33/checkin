@@ -3,14 +3,14 @@ const glados = async () => {
   if (!cookie) return
   try {
     const headers = {
-      'cookie': cookie,
+      'cookie': 'koa:sess=eyJ1c2VySWQiOjIwMjAwMCwiX2V4cGlyZSI6MTcyMTYxMzUyMTUxMywiX21heEFnZSI6MjU5MjAwMDAwMDB9; koa:sess.sig=WAIXo_BZXSqU8VGWjBQc4C68tQo',
       'referer': 'https://glados.rocks/console/checkin',
       'user-agent': 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)',
     }
     const checkin = await fetch('https://glados.rocks/api/user/checkin', {
       method: 'POST',
       headers: { ...headers, 'content-type': 'application/json' },
-      body: '{"token":"glados.network"}',
+      body: '{"token":"glados.one"}',
     }).then((r) => r.json())
     const status = await fetch('https://glados.rocks/api/user/status', {
       method: 'GET',
